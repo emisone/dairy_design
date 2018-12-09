@@ -1,0 +1,83 @@
+.top{
+	position: relative;
+	background-image: url(green.jpg);
+	height: 620px;
+	width: 100%;
+	background-repeat: no-repeat; 
+}
+
+.top h1{
+	position: absolute;
+		left: 30px;
+		bottom: 50px;
+	font-size: 100px;
+	color: rgb(230 230 250);
+	text-shadow: 1px 1px 0 #000,
+               -1px 1px 0 #000,
+               1px -1px 0 #000,
+               -1px -1px 0 #000;
+}
+
+li{
+	list-style: none;
+}
+
+a{
+  display: inline-block;
+	text-decoration: none;
+	font-size: 28px;
+}
+
+/*メニュー部分*/
+#menu-box{
+	background-color: #fff;
+	box-sizing: border-box;
+	height: 100%;
+	padding: 20px 40px;
+	position: fixed;
+		right: -300px;
+		top: 0;
+	transition: transform 0.3s linear 0s;
+	width:  300px;
+	z-index: 1000;
+}
+
+/*メニューアイコン部分は疑似要素で*/
+#menu-box::before{
+	background-color: #fff;
+	color: #333;
+	content: "≡";
+	display: block;
+	font-size: 50px;
+	height: 50px;
+	line-height: 50px;
+	position: absolute;
+		right: 100%;
+	text-align: center;
+		top: 0;
+	width: 60px;
+}
+
+/*透過背景部分*/
+#menu-background {
+	background-color: #333;
+	display: block;
+	height: 100%;
+	opacity: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: all 0.3s linear 0s;
+	width: 100%;
+	z-index: -1;
+}
+
+/*hover 時の処理*/
+#menu-box:hover {
+	transform: translate(-300px);
+}
+
+#menu-box:hover + #menu-background {
+	opacity: 0.5;
+	z-index: 999;
+}
